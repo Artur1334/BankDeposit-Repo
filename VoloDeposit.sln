@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoloDeposit", "VoloDeposit\VoloDeposit.csproj", "{EE12F373-5169-4004-ADB2-EAB030DE0078}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoloDeposit.Tests", "VoloDeposit.Tests\VoloDeposit.Tests.csproj", "{97933D7C-93D1-4DC1-B244-FF1A666E63B0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{AFC2FA76-FE94-47DE-B137-3DD6262B573C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesServices", "EntitiesServices\EntitiesServices.csproj", "{B1BAE97D-70D5-41EF-8BE0-6C88BB6812C6}"
@@ -15,20 +11,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfrastructureData", "InfrastructureData\InfrastructureData.csproj", "{228D4DA4-6852-438F-89DF-529820FCC7F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoloDeposit", "VoloDeposit\VoloDeposit.csproj", "{D479DEEB-88CA-45FB-922B-0EDA48A37A29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoloDeposit.Tests", "VoloDeposit.Tests\VoloDeposit.Tests.csproj", "{1B89D6BE-0DB2-4455-B4E3-A935BCEF02A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EE12F373-5169-4004-ADB2-EAB030DE0078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE12F373-5169-4004-ADB2-EAB030DE0078}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE12F373-5169-4004-ADB2-EAB030DE0078}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE12F373-5169-4004-ADB2-EAB030DE0078}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97933D7C-93D1-4DC1-B244-FF1A666E63B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97933D7C-93D1-4DC1-B244-FF1A666E63B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97933D7C-93D1-4DC1-B244-FF1A666E63B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97933D7C-93D1-4DC1-B244-FF1A666E63B0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1BAE97D-70D5-41EF-8BE0-6C88BB6812C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B1BAE97D-70D5-41EF-8BE0-6C88BB6812C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1BAE97D-70D5-41EF-8BE0-6C88BB6812C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,6 +29,14 @@ Global
 		{228D4DA4-6852-438F-89DF-529820FCC7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{228D4DA4-6852-438F-89DF-529820FCC7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{228D4DA4-6852-438F-89DF-529820FCC7F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D479DEEB-88CA-45FB-922B-0EDA48A37A29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D479DEEB-88CA-45FB-922B-0EDA48A37A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D479DEEB-88CA-45FB-922B-0EDA48A37A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D479DEEB-88CA-45FB-922B-0EDA48A37A29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B89D6BE-0DB2-4455-B4E3-A935BCEF02A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B89D6BE-0DB2-4455-B4E3-A935BCEF02A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B89D6BE-0DB2-4455-B4E3-A935BCEF02A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B89D6BE-0DB2-4455-B4E3-A935BCEF02A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

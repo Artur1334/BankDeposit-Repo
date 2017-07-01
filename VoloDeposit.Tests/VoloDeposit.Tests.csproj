@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{97933D7C-93D1-4DC1-B244-FF1A666E63B0}</ProjectGuid>
+    <ProjectGuid>{1B89D6BE-0DB2-4455-B4E3-A935BCEF02A9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VoloDeposit.Tests</RootNamespace>
@@ -93,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VoloDeposit\VoloDeposit.csproj">
-      <Project>{EE12F373-5169-4004-ADB2-EAB030DE0078}</Project>
+      <Project>{D479DEEB-88CA-45FB-922B-0EDA48A37A29}</Project>
       <Name>VoloDeposit</Name>
     </ProjectReference>
   </ItemGroup>
