@@ -52,40 +52,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Bank.cs">
-      <DependentUpon>DepositModel.tt</DependentUpon>
+      <DependentUpon>DepositEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Deposit.cs">
-      <DependentUpon>DepositModel.tt</DependentUpon>
+      <DependentUpon>DepositEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\DepositModel.Context.cs">
+    <Compile Include="Entities\DepositEntityModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DepositModel.Context.tt</DependentUpon>
+      <DependentUpon>DepositEntityModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\DepositModel.cs">
+    <Compile Include="Entities\DepositEntityModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DepositModel.tt</DependentUpon>
+      <DependentUpon>DepositEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\DepositModel.Designer.cs">
+    <Compile Include="Entities\DepositEntityModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DepositModel.edmx</DependentUpon>
+      <DependentUpon>DepositEntityModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Person.cs">
-      <DependentUpon>DepositModel.tt</DependentUpon>
+      <DependentUpon>DepositEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IGenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Entities\DepositModel.edmx">
+    <EntityDeploy Include="Entities\DepositEntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DepositModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DepositEntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entities\DepositModel.edmx.diagram">
-      <DependentUpon>DepositModel.edmx</DependentUpon>
+    <None Include="Entities\DepositEntityModel.edmx.diagram">
+      <DependentUpon>DepositEntityModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -94,15 +94,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Entities\DepositModel.Context.tt">
+    <Content Include="Entities\DepositEntityModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DepositModel.edmx</DependentUpon>
-      <LastGenOutput>DepositModel.Context.cs</LastGenOutput>
+      <DependentUpon>DepositEntityModel.edmx</DependentUpon>
+      <LastGenOutput>DepositEntityModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entities\DepositModel.tt">
+    <Content Include="Entities\DepositEntityModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DepositModel.edmx</DependentUpon>
-      <LastGenOutput>DepositModel.cs</LastGenOutput>
+      <DependentUpon>DepositEntityModel.edmx</DependentUpon>
+      <LastGenOutput>DepositEntityModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -28,7 +28,5 @@ namespace EntitiesServices.Entities
         public virtual DbSet<Bank> Banks { get; set; }
         public virtual DbSet<Deposit> Deposits { get; set; }
         public virtual DbSet<Person> People { get; set; }
-
-        
     }
 }

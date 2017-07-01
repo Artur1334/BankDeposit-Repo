@@ -15,11 +15,9 @@
         </EntityType>
         <EntityType Name="Deposits">
           <Key>
-            <PropertyRef Name="BankID" />
-            <PropertyRef Name="DepositorID" />
-            <PropertyRef Name="DepositType" />
+            <PropertyRef Name="DepositID" />
           </Key>
-          <Property Name="DepositNomer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepositID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BankID" Type="int" Nullable="false" />
           <Property Name="DepositorID" Type="int" Nullable="false" />
           <Property Name="DepositType" Type="tinyint" Nullable="false" />
@@ -92,11 +90,9 @@
         </EntityType>
         <EntityType Name="Deposit">
           <Key>
-            <PropertyRef Name="BankID" />
-            <PropertyRef Name="DepositorID" />
-            <PropertyRef Name="DepositType" />
+            <PropertyRef Name="DepositID" />
           </Key>
-          <Property Name="DepositNomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepositID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BankID" Type="Int32" Nullable="false" />
           <Property Name="DepositorID" Type="Int32" Nullable="false" />
           <Property Name="DepositType" Type="Byte" Nullable="false" />
@@ -174,7 +170,7 @@
           <EntitySetMapping Name="Deposits">
             <EntityTypeMapping TypeName="ArmDepositModel.Deposit">
               <MappingFragment StoreEntitySet="Deposits">
-                <ScalarProperty Name="DepositNomer" ColumnName="DepositNomer" />
+                <ScalarProperty Name="DepositID" ColumnName="DepositID" />
                 <ScalarProperty Name="BankID" ColumnName="BankID" />
                 <ScalarProperty Name="DepositorID" ColumnName="DepositorID" />
                 <ScalarProperty Name="DepositType" ColumnName="DepositType" />

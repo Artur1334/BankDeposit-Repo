@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d77e1b5c714046aaa8234baa826cfd7c" Name="Diagram1">
+      <Diagram DiagramId="8ceb2825732843b3a6f6c137eb708ad4" Name="Diagram1" ZoomLevel="89">
         <EntityTypeShape EntityType="ArmDepositModel.Bank" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ArmDepositModel.Deposit" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArmDepositModel.Person" Width="1.5" PointX="6.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmDepositModel.Person" Width="1.5" PointX="6.125" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="ArmDepositModel.FK_Bnak" ManuallyRouted="false" />
         <AssociationConnector Association="ArmDepositModel.FK_DepositorPerson" ManuallyRouted="false" />
       </Diagram>

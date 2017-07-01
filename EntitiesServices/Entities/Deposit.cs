@@ -14,7 +14,7 @@ namespace EntitiesServices.Entities
     
     public partial class Deposit
     {
-        public int DepositNomer { get; set; }
+        public int DepositID { get; set; }
         public int BankID { get; set; }
         public int DepositorID { get; set; }
         public byte DepositType { get; set; }
