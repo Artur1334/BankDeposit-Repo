@@ -12,12 +12,12 @@ namespace InfrastructureData
 {
     public class GenericRepository<TModel> : IGenericRepository<TModel>  where TModel:class
     {
-        private ArmDepositEntities DbEntities;
+        private ArmDepositEntities DbEntitiesContext;
         private DbSet<TModel> _dbset;
         public GenericRepository()
         {
-            this.DbEntities = new ArmDepositEntities();
-            this._dbset = DbEntities.Set<TModel>();
+            this.DbEntitiesContext = new ArmDepositEntities();
+            this._dbset = DbEntitiesContext.Set<TModel>();
         }
 
         public TModel Select(object id)
@@ -28,7 +28,7 @@ namespace InfrastructureData
         void IGenericRepository<TModel>.Create(TModel entity)
         {
             _dbset.Add(entity);
-            DbEntities.SaveChanges();
+            DbEntitiesContext.SaveChanges();
         }
 
         void IGenericRepository<TModel>.Delete(int id)
@@ -39,14 +39,14 @@ namespace InfrastructureData
 
         void IDisposable.Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         void IGenericRepository<TModel>.Save()
         {
             try
             {
-                DbEntities.SaveChanges();
+                DbEntitiesContext.SaveChanges();
             }
             catch (Exception exception)
             {
@@ -64,7 +64,7 @@ namespace InfrastructureData
         {
             _dbset.Attach(entity);
 
-            DbEntities.Entry(entity).State = EntityState.Modified;
+            DbEntitiesContext.Entry(entity).State = EntityState.Modified;
         }
     }
 }
