@@ -8,42 +8,19 @@ using System.Web;
 using System.Web.Mvc;
 using EntitiesServices.Entities;
 using EntitiesServices.Services;
-using InfrastructureData;
-using VoloDeposit.Areas.Admin.ViewModel;
-using VoloDeposit.Areas.Admin.Mappings;
+using VoloDeposit.ViewModel;
+using VoloDeposit.Mappings;
 
-namespace VoloDeposit.Areas.Admin.Controllers
+namespace VoloDeposit.Controllers
 {
-    public abstract class BaseBankController : Controller
+    public class BanksController : Controller
     {
         protected IGenericRepository<Bank> _repo;
 
-       // public BaseBankController() : this(new GenericRepository<Bank>())
-       //{ }
-
-        public BaseBankController(IGenericRepository<Bank> repository)
+        public BanksController(IGenericRepository<Bank> repository)
         {
             _repo = repository;
-        }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (_repo != null)
-            {
-                _repo.Dispose();
-                _repo = null;
-            }
-
-            base.Dispose(disposing);
-        }
-    }
-    
-public class BanksController : BaseBankController
-    {
-        private ArmDepositEntities db = new ArmDepositEntities();
-
-        public BanksController(IGenericRepository<Bank> repository) : base(repository)
-        {
         }
 
         // GET: Admin/Banks
@@ -64,15 +41,14 @@ public class BanksController : BaseBankController
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BankID,BankName,Deleted")] Bank bank)
         {
-           
-              
-                    _repo.Create(bank);
-                    _repo.Save();
-                    return RedirectToAction("Index");
-               
-              
-           
-           
+            if (ModelState.IsValid)
+            {
+                _repo.Create(bank);
+                _repo.Save();
+                return RedirectToAction("Index");
+            }
+
+            return View();
 
         }
 
@@ -83,13 +59,13 @@ public class BanksController : BaseBankController
             //{
             //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             //}
-            
-                BankViewModel bankVM = _repo.Select<Bank>(id).To_BankViewModel();
-                if (bankVM == null)
-                {
-                    return HttpNotFound();
-                }
-            
+
+            BankViewModel bankVM = _repo.Select<Bank>(id).To_BankViewModel();
+            if (bankVM == null)
+            {
+                return HttpNotFound();
+            }
+
             return View(bankVM);
         }
 
@@ -132,7 +108,7 @@ public class BanksController : BaseBankController
         {
             try
             {
-               // _repo.DeleteBankAndThrowToArchive(_repo.Select<Bank>(id));
+                // _repo.DeleteBankAndThrowToArchive(_repo.Select<Bank>(id));
                 _repo.Delete(id);
                 _repo.Save();
                 return RedirectToAction("Index");
@@ -141,6 +117,16 @@ public class BanksController : BaseBankController
             {
                 return View();
             }
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (_repo != null)
+            {
+                _repo.Dispose();
+                _repo = null;
+            }
+
+            base.Dispose(disposing);
         }
     }
 }

@@ -10,55 +10,16 @@ using EntitiesServices.Entities;
 
 namespace VoloDeposit.Areas.Admin.Controllers
 {
-    public class PeopleController : Controller
+    public class DepositorsControlController : Controller
     {
         private ArmDepositEntities db = new ArmDepositEntities();
 
-        // GET: Admin/People
+        // GET: Admin/DepositorsControl
         public ActionResult Index()
         {
             return View(db.People.ToList());
         }
 
-        // GET: Admin/People/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Person person = db.People.Find(id);
-            if (person == null)
-            {
-                return HttpNotFound();
-            }
-            return View(person);
-        }
-
-        // GET: Admin/People/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/People/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonId,FirstName,LastName,BirthDay,Email,Phone,Pasport")] Person person)
-        {
-            if (ModelState.IsValid)
-            {
-                db.People.Add(person);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(person);
-        }
-
-        // GET: Admin/People/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,7 +34,7 @@ namespace VoloDeposit.Areas.Admin.Controllers
             return View(person);
         }
 
-        // POST: Admin/People/Edit/5
+        // POST: Admin/DepositorsControl/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +50,7 @@ namespace VoloDeposit.Areas.Admin.Controllers
             return View(person);
         }
 
-        // GET: Admin/People/Delete/5
+        // GET: Admin/DepositorsControl/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +65,7 @@ namespace VoloDeposit.Areas.Admin.Controllers
             return View(person);
         }
 
-        // POST: Admin/People/Delete/5
+        // POST: Admin/DepositorsControl/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

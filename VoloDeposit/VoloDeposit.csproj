@@ -146,17 +146,16 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\BanksController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PeopleController.cs" />
-    <Compile Include="Areas\Admin\Mappings\BankMapper.cs" />
-    <Compile Include="Areas\Admin\ViewModel\BankViewModel.cs" />
-    <Compile Include="Areas\Admin\ViewModel\DepositViewModel.cs" />
-    <Compile Include="Areas\Admin\ViewModel\PersonViewModelcs.cs" />
+    <Compile Include="Areas\Admin\Controllers\BanksControlController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DepositorsControlController.cs" />
+    <Compile Include="Controllers\BanksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\BankMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\BankViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -168,12 +167,14 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Banks\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Banks\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Banks\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Banks\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\BanksControl\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\BanksControl\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BanksControl\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DepositorsControl\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DepositorsControl\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DepositorsControl\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BanksControl\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -208,7 +209,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\People\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

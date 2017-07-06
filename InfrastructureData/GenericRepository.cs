@@ -22,7 +22,7 @@ namespace InfrastructureData
 
  
 
-        public TModel Select<Tmodel>(int id)
+        public TModel Select<Tmodel>(int? id)
         {
             return _dbset.Find(id);
         }
@@ -34,7 +34,7 @@ namespace InfrastructureData
             DbEntitiesContext.SaveChanges();
         }
 
-        void IGenericRepository<TModel>.Delete(int id)
+        void IGenericRepository<TModel>.Delete(int? id)
         {
             TModel entityToDelete = _dbset.Find(id);
             _dbset.Remove(entityToDelete);

@@ -1,22 +1,23 @@
-﻿@model VoloDeposit.Areas.Admin.ViewModel.BankViewModel
+﻿@model EntitiesServices.Entities.Bank
 
 @{
     ViewBag.Title = "Delete";
+    Layout = Request.IsAjaxRequest() ? null : "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>BankViewModel</h4>
+    <h4>Bank</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.BankName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.BankName)
         </dd>
 
         <dt>
