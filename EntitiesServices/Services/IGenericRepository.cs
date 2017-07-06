@@ -10,10 +10,11 @@ namespace EntitiesServices.Services
     public interface IGenericRepository<TModel>:IDisposable where TModel : class
     {
         IEnumerable<TModel> SelectAll();
-        TModel Select(object id);
+        TModel Select<Tmodel>(int id);
         void Create(TModel item);
         void Update(TModel item);
         void Delete(int id);
         void Save();
+      
     }
 }

@@ -92,6 +92,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EntitiesServices\EntitiesServices.csproj">
+      <Project>{B1BAE97D-70D5-41EF-8BE0-6C88BB6812C6}</Project>
+      <Name>EntitiesServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VoloDeposit\VoloDeposit.csproj">
       <Project>{D479DEEB-88CA-45FB-922B-0EDA48A37A29}</Project>
       <Name>VoloDeposit</Name>

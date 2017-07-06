@@ -20,10 +20,13 @@ namespace InfrastructureData
             this._dbset = DbEntitiesContext.Set<TModel>();
         }
 
-        public TModel Select(object id)
+ 
+
+        public TModel Select<Tmodel>(int id)
         {
             return _dbset.Find(id);
         }
+     
 
         void IGenericRepository<TModel>.Create(TModel entity)
         {

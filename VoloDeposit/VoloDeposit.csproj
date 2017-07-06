@@ -145,6 +145,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BanksController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PeopleController.cs" />
+    <Compile Include="Areas\Admin\Mappings\BankMapper.cs" />
+    <Compile Include="Areas\Admin\ViewModel\BankViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModel\DepositViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModel\PersonViewModelcs.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -160,6 +167,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Banks\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Banks\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Banks\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Banks\Delete.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -183,12 +197,18 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Banks\Create.cshtml" />
+    <Content Include="Views\Banks\Delete.cshtml" />
+    <Content Include="Views\Banks\Details.cshtml" />
+    <Content Include="Views\Banks\Edit.cshtml" />
+    <Content Include="Views\Banks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\People\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +220,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CalculatorService\CalculatorService.csproj">
+      <Project>{6fa25546-0e54-492f-a997-e96cf1c3cc47}</Project>
+      <Name>CalculatorService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EntitiesServices\EntitiesServices.csproj">
       <Project>{b1bae97d-70d5-41ef-8be0-6c88bb6812c6}</Project>
       <Name>EntitiesServices</Name>

@@ -1,32 +1,46 @@
-﻿using EntitiesServices.Entities;
+﻿using CalculatorService;
+using EntitiesServices.Entities;
 using EntitiesServices.Services;
-using InfrastructureData;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace VoloDeposit.Controllers
 {
+ 
     public class HomeController : Controller
     {
         private readonly IGenericRepository<Bank> _repo;
+       
+        public HomeController(IGenericRepository<Bank> repo)
+        {
+            _repo = repo;
+            var calulator = CalculatorResolver.Get("Family");
+            var total = calulator.Calculate(75.50m, 1);
+        }
         public HomeController()
         {
-            _repo = new GenericRepository<Bank>();
+            
         }
         public ActionResult Index()
         {
             return View(_repo.SelectAll());
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+        //public ActionResult About(CreateBankViewModel ViewModel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Bank bank = new Bank { BankID = ViewModel.BankId, BankName = ViewModel.BankName };
+        //    }
 
-            return View();
-        }
+
+        //        return View();
+        //}
 
         public ActionResult Contact()
         {

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoloDeposit", "VoloDeposit\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoloDeposit.Tests", "VoloDeposit.Tests\VoloDeposit.Tests.csproj", "{1B89D6BE-0DB2-4455-B4E3-A935BCEF02A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService", "CalculatorService\CalculatorService.csproj", "{6FA25546-0E54-492F-A997-E96CF1C3CC47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{1B89D6BE-0DB2-4455-B4E3-A935BCEF02A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B89D6BE-0DB2-4455-B4E3-A935BCEF02A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B89D6BE-0DB2-4455-B4E3-A935BCEF02A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FA25546-0E54-492F-A997-E96CF1C3CC47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA25546-0E54-492F-A997-E96CF1C3CC47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA25546-0E54-492F-A997-E96CF1C3CC47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA25546-0E54-492F-A997-E96CF1C3CC47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +50,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B1BAE97D-70D5-41EF-8BE0-6C88BB6812C6} = {AFC2FA76-FE94-47DE-B137-3DD6262B573C}
 		{228D4DA4-6852-438F-89DF-529820FCC7F7} = {B03E97E6-0FD6-49E6-B9EB-B19F124DA69B}
+		{6FA25546-0E54-492F-A997-E96CF1C3CC47} = {AFC2FA76-FE94-47DE-B137-3DD6262B573C}
 	EndGlobalSection
 EndGlobal
