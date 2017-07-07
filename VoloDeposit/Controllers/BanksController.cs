@@ -29,95 +29,6 @@ namespace VoloDeposit.Controllers
             List<BankViewModel> bankVM = _repo.SelectAll().To_BankViewModel().ToList<BankViewModel>();
             return View(bankVM);
         }
-
-        // GET: Admin/Banks/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/Banks/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BankID,BankName,Deleted")] Bank bank)
-        {
-            if (ModelState.IsValid)
-            {
-                _repo.Create(bank);
-                _repo.Save();
-                return RedirectToAction("Index");
-            }
-
-            return View();
-
-        }
-
-        // GET: Admin/Banks/Edit/5
-        public ActionResult Edit(int id)
-        {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-
-            BankViewModel bankVM = _repo.Select<Bank>(id).To_BankViewModel();
-            if (bankVM == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(bankVM);
-        }
-
-        // POST: Admin/Banks/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BankID,BankName,Deleted")] Bank bank)
-        {
-            try
-            {
-                _repo.Update(bank);
-                _repo.Save();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Admin/Banks/Delete/5
-        public ActionResult Delete(int id)
-        {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            BankViewModel bankVM = _repo.Select<Bank>(id).To_BankViewModel();
-            if (bankVM == null)
-            {
-                return HttpNotFound();
-            }
-            return View(bankVM);
-        }
-
-        // POST: Admin/Banks/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            try
-            {
-                // _repo.DeleteBankAndThrowToArchive(_repo.Select<Bank>(id));
-                _repo.Delete(id);
-                _repo.Save();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
         protected override void Dispose(bool disposing)
         {
             if (_repo != null)
@@ -128,5 +39,95 @@ namespace VoloDeposit.Controllers
 
             base.Dispose(disposing);
         }
+
+        //// GET: Admin/Banks/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
+
+        //// POST: Admin/Banks/Create
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "BankID,BankName,Deleted")] Bank bank)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _repo.Create(bank);
+        //        _repo.Save();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View();
+
+        //}
+
+        // GET: Admin/Banks/Edit/5
+        //public ActionResult Edit(int id)
+        //{
+        //    //if (id == null)
+        //    //{
+        //    //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    //}
+
+        //    BankViewModel bankVM = _repo.Select<Bank>(id).To_BankViewModel();
+        //    if (bankVM == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+
+        //    return View(bankVM);
+        //}
+
+        // POST: Admin/Banks/Edit/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "BankID,BankName,Deleted")] Bank bank)
+        //{
+        //    try
+        //    {
+        //        _repo.Update(bank);
+        //        _repo.Save();
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
+
+        // GET: Admin/Banks/Delete/5
+        //public ActionResult Delete(int id)
+        //{
+        //    //if (id == null)
+        //    //{
+        //    //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    //}
+        //    BankViewModel bankVM = _repo.Select<Bank>(id).To_BankViewModel();
+        //    if (bankVM == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(bankVM);
+        //}
+
+        // POST: Admin/Banks/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    try
+        //    {
+        //        // _repo.DeleteBankAndThrowToArchive(_repo.Select<Bank>(id));
+        //        _repo.Delete(id);
+        //        _repo.Save();
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
+
     }
 }

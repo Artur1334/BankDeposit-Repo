@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EntitiesServices.Entities.Deposit>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepositType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepositDated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepositYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bank.BankName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Person.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepositType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepositDated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepositYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bank.BankName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Person.FirstName)
+        </td>
+
+    </tr>
+}
+
+</table>

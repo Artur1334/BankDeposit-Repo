@@ -7,17 +7,23 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EntitiesServices.Entities;
+using EntitiesServices.Services;
+using InfrastructureData;
 
 namespace VoloDeposit.Areas.Admin.Controllers
 {
     public class DepositorsControlController : Controller
     {
-        private ArmDepositEntities db = new ArmDepositEntities();
+        protected IGenericRepository<Person> _repository;
+        public DepositorsControlController(GenericRepository<Person> repository)
+        {
+            this._repository = repository;
+        }
 
         // GET: Admin/DepositorsControl
         public ActionResult Index()
         {
-            return View(db.People.ToList());
+            return View(_repository.SelectAll());
         }
 
         public ActionResult Edit(int? id)
@@ -26,7 +32,7 @@ namespace VoloDeposit.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = db.People.Find(id);
+            Person person =_repository.Select<Bank>(id);
             if (person == null)
             {
                 return HttpNotFound();
@@ -35,52 +41,33 @@ namespace VoloDeposit.Areas.Admin.Controllers
         }
 
         // POST: Admin/DepositorsControl/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PersonId,FirstName,LastName,BirthDay,Email,Phone,Pasport")] Person person)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(person).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _repository.Update(person);
+                    _repository.Save();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DataException )
+            {
+                ModelState.AddModelError(string.Empty, "Unable to save changes. Try again.");
             }
             return View(person);
         }
 
-        // GET: Admin/DepositorsControl/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Person person = db.People.Find(id);
-            if (person == null)
-            {
-                return HttpNotFound();
-            }
-            return View(person);
-        }
-
-        // POST: Admin/DepositorsControl/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Person person = db.People.Find(id);
-            db.People.Remove(person);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                _repository.Dispose();
+                _repository = null;
             }
             base.Dispose(disposing);
         }

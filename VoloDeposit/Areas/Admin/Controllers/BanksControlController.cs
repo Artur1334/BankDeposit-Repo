@@ -78,7 +78,7 @@ namespace VoloDeposit.Areas.Admin.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            catch (DataException /* dex */)
+            catch (DataException )
             {
                 ModelState.AddModelError(string.Empty, "Unable to save changes. Try again.");
             }

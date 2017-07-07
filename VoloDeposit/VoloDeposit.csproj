@@ -148,6 +148,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BanksControlController.cs" />
     <Compile Include="Areas\Admin\Controllers\DepositorsControlController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DepositsControlController.cs" />
     <Compile Include="Controllers\BanksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -171,10 +172,10 @@
     <Content Include="Areas\Admin\Views\BanksControl\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\BanksControl\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BanksControl\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DepositorsControl\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\DepositorsControl\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DepositorsControl\Index.cshtml" />
     <Content Include="Areas\Admin\Views\BanksControl\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DepositsControl\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -200,10 +201,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Banks\Create.cshtml" />
-    <Content Include="Views\Banks\Delete.cshtml" />
-    <Content Include="Views\Banks\Details.cshtml" />
-    <Content Include="Views\Banks\Edit.cshtml" />
     <Content Include="Views\Banks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

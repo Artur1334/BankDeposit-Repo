@@ -15,7 +15,7 @@ namespace VoloDeposit.Mappings
             {
                 Id = bank.BankID,
                 Name = bank.BankName,
-                Deleted = bank.Deleted
+                //Deleted = bank.Deleted
             };
             return VMBank;
         }
