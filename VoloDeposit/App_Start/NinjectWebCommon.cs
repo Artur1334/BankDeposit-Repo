@@ -12,6 +12,7 @@ namespace VoloDeposit.App_Start
     using Ninject.Web.Common;
     using EntitiesServices.Services;
     using InfrastructureData;
+    using System.Web.Mvc;
 
     public static class NinjectWebCommon 
     {
@@ -63,7 +64,8 @@ namespace VoloDeposit.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(typeof(IGenericRepository<>)).To(typeof(GenericRepository<>));
+            DependencyResolver.SetResolver(new VoloDeposit.Util.DependencyResolver(kernel));
+         
         }        
     }
 }

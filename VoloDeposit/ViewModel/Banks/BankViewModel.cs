@@ -14,6 +14,6 @@ namespace VoloDeposit.ViewModel
             [MaxLength(50)]
             [Display(Name = "Bank name")]
             public string Name { get; set; }
-            //public Nullable<bool> Deleted { get; set; }
+          //  public Nullable<bool> Deleted { get; set; }
         }
     }

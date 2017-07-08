@@ -15,26 +15,26 @@ namespace VoloDeposit.Controllers
 {
     public class BanksController : Controller
     {
-        protected IGenericRepository<Bank> _repo;
+        protected IGenericRepository<Bank> _repository;
 
         public BanksController(IGenericRepository<Bank> repository)
         {
-            _repo = repository;
+            _repository = repository;
 
         }
 
         // GET: Admin/Banks
         public ActionResult Index()
         {
-            List<BankViewModel> bankVM = _repo.SelectAll().To_BankViewModel().ToList<BankViewModel>();
+            List<BankViewModel> bankVM = _repository.SelectAll().Where(d => d.Deleted == false).To_BankViewModel().ToList<BankViewModel>();
             return View(bankVM);
         }
         protected override void Dispose(bool disposing)
         {
-            if (_repo != null)
+            if (_repository != null)
             {
-                _repo.Dispose();
-                _repo = null;
+                _repository.Dispose();
+                _repository = null;
             }
 
             base.Dispose(disposing);
