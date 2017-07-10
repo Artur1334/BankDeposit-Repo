@@ -28,7 +28,7 @@ namespace VoloDeposit.Controllers
         }
         public ActionResult Index()
         {
-            return View(_repo.SelectAll());
+            return View();
         }
 
         //public ActionResult About(CreateBankViewModel ViewModel)

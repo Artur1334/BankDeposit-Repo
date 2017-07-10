@@ -64,7 +64,7 @@ namespace VoloDeposit.Controllers
         {
             if (ModelState.IsValid)
             {
-                Person _person = DepositorMapper.To_Depositor_CreateEdit_ViewModel(depositor); // Depositor_Create_ViewModel to person
+                Person _person = DepositorMapper.To_Depositor_Create_ViewModel(depositor); // Depositor_Create_ViewModel to person
                 _repository.Create(_person);
                 _repository.Save();
                 return RedirectToAction("Create", "Deposits");

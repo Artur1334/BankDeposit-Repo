@@ -149,6 +149,7 @@
     <Compile Include="Areas\Admin\Controllers\BanksControlController.cs" />
     <Compile Include="Areas\Admin\Controllers\DepositorsControlController.cs" />
     <Compile Include="Areas\Admin\Controllers\DepositsControlController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
     <Compile Include="Controllers\BanksController.cs" />
     <Compile Include="Controllers\DepositorsController.cs" />
     <Compile Include="Controllers\DepositsController.cs" />
@@ -157,6 +158,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mappings\BankMapper.cs" />
+    <Compile Include="Mappings\DepositMapper.cs" />
     <Compile Include="Mappings\DepositorMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\DependencyResolver.cs" />
@@ -183,6 +185,7 @@
     <Content Include="Areas\Admin\Views\DepositorsControl\Index.cshtml" />
     <Content Include="Areas\Admin\Views\BanksControl\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DepositsControl\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Search\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

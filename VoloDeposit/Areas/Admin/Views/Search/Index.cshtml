@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    <div class="div_search">
+        <div style="float:left">
+            @Html.Label("Client's First name")
+            <br />
+            @Html.TextBox("FirstName", "", new { @class = "textBox", placeholder = "First name" })
+            <br /><br />
+            @Html.Label("Bank Name")
+            <br />
+            @Html.TextBox("BankName", "", new { @class = "textBox", placeholder = "Bank" })
+            <br /><br />
+            @Html.Label("Deposit Amount from")
+            <br />
+            @Html.TextBox("MinAmount", "", new { @class = "textBox", placeholder = "Amount From" })
+            <br /><br />
+            @Html.Label("Start date from ")
+            <br />
+            @Html.TextBox("MinStartDate", "", new { @class = "textBox", placeholder = "Start date from" })
+        </div>
+        <div style="float:right">
+            @Html.Label("Client's Last name")
+            <br />
+            @Html.TextBox("LastName", "", new { @class = "textBox", placeholder = "Last name" })
+            <br /><br />
+            @Html.Label("Deposit type")
+            <br />
+            @*@Html.TextBox("DepositType", "", new { @class = "textBox", placeholder = "First name" })*@
+            @Html.DropDownList("DepositType", new SelectList(AllDeposits.GetAll.Select(m => m.Name)), new { @class = "textBox" })
+            <br /><br />
+            @Html.Label("To")
+            <br />
+            @Html.TextBox("MaxAmount", "", new { @class = "textBox", placeholder = "To" })
+            <br /><br />
+            @Html.Label("To")
+            <br />
+            @Html.TextBox("MaxStartDate", "", new { @class = "textBox", placeholder = "To" })
+        </div>
+
+    
+        <br /><br />
+        @*<div style="width:90%;float: left;margin-left:15%;">
+            <button type="button" class="btn_cancel btn btn-xs" onclick="history.back()"><img class="smallIco" src="~/Content/Icons/cancel-ico.png" /> Back</button>
+            <button style="margin-left:-15%;" class="btn_add btn btn-xs" type="submit" value="Search"><img class="middleIco" src="~/Content/Icons/search-ico.png" /> Search</button>
+            <img id="loadingElement" src="~/Content/Icons/loading-gif.gif" style="height:30px;width:30px;display:none " />
+        </div>*@
+    </div>
+}
+
+<div class="search_result" id="searchResult">
+</div>
+@*@section ajaxScript
+{
+    <script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
+}*@
+

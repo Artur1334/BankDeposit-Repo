@@ -9,7 +9,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
+using VoloDeposit.Mappings;
+using VoloDeposit.ViewModel.Deposit;
 
 namespace VoloDeposit.Controllers
 {
@@ -17,10 +18,10 @@ namespace VoloDeposit.Controllers
     {
         private ArmDepositEntities db = new ArmDepositEntities();
 
-        protected IGenericRepository<Bank> _repository;
-        public DepositsController(GenericRepository<Bank> repository)
+        protected IGenericRepository<Deposit> _repository;
+        public DepositsController(GenericRepository<Deposit> repository)
         {
-            _repository = repository;
+            this._repository = repository;
         }
         // GET: Deposits/Create
         public ActionResult Create()
@@ -40,9 +41,15 @@ namespace VoloDeposit.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Deposits.Add(deposit);
-                db.SaveChanges();
+                
+                Deposit _deposit = DepositMapper.To_Deposit_Create_ViewModel(deposit);
+                _repository.Create(_deposit);
+                _repository.Save();
                 return RedirectToAction("Index");
+
+                //db.Deposits.Add(deposit);
+                //db.SaveChanges();
+
             }
 
             ViewBag.BankID = new SelectList(db.Banks, "BankID", "BankName", deposit.BankID);
@@ -53,7 +60,8 @@ namespace VoloDeposit.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _repository.Dispose();
+                _repository = null;
             }
             base.Dispose(disposing);
         }

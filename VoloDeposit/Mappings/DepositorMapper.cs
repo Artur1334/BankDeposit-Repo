@@ -9,7 +9,7 @@ namespace VoloDeposit.Mappings
 {
     public static class DepositorMapper
     {
-        public static Person To_Depositor_CreateEdit_ViewModel(this Depositor_Create_ViewModel depositor)
+        public static Person To_Depositor_Create_ViewModel(this Depositor_Create_ViewModel depositor)
         {
            Person depositorVM = new Person()
             { PersonId= depositor.PersonId,
