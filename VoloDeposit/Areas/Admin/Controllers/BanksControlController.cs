@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using EntitiesServices.Entities;
 using EntitiesServices.Services;
 using InfrastructureData;
+using System.IO;
+
 
 namespace VoloDeposit.Areas.Admin.Controllers
 {
@@ -37,8 +39,23 @@ namespace VoloDeposit.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BankID,BankName,Deleted")] Bank bank)
+        public ActionResult Create([Bind(Include = "BankID,BankName,Deleted")]  Bank bank)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    string fileName = "";
+            //    if (Icon != null)
+            //    {
+            //        var path = Path.Combine(Server.MapPath("~/Content/BankIcon"), Icon.FileName);
+            //        fileName = Path.GetFileNameWithoutExtension(Icon.FileName);
+            //        Icon.SaveAs(path);
+            //    }
+            //    else
+            //    {
+            //        fileName = null;
+            //    }
+            //    return RedirectToAction("Index");
+            //}
             if (ModelState.IsValid)
             {
                 _repository.Create(bank);

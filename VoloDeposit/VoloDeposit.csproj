@@ -151,6 +151,7 @@
     <Compile Include="Areas\Admin\Controllers\DepositsControlController.cs" />
     <Compile Include="Controllers\BanksController.cs" />
     <Compile Include="Controllers\DepositorsController.cs" />
+    <Compile Include="Controllers\DepositsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -162,6 +163,7 @@
     <Compile Include="ViewModel\Banks\BankViewModel.cs" />
     <Compile Include="ViewModel\Depositors\Depositor_Create_ViewModel.cs" />
     <Compile Include="ViewModel\Depositors\Depositor_Pasport_ViewModel.cs" />
+    <Compile Include="ViewModel\Deposit\DepositViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -207,16 +209,19 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Banks\Index.cshtml" />
-    <Content Include="Views\Depositors\Create.cshtml" />
-    <Content Include="Views\Depositors\Delete.cshtml" />
-    <Content Include="Views\Depositors\Details.cshtml" />
-    <Content Include="Views\Depositors\Edit.cshtml" />
-    <Content Include="Views\Depositors\Index.cshtml" />
     <Content Include="Views\Depositors\PasportCheckView.cshtml" />
+    <Content Include="Views\Depositors\Create.cshtml" />
+    <Content Include="Views\Deposits\Create.cshtml" />
+    <Content Include="Views\Deposits\Delete.cshtml" />
+    <Content Include="Views\Deposits\Details.cshtml" />
+    <Content Include="Views\Deposits\Edit.cshtml" />
+    <Content Include="Views\Deposits\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Content\BankIcon\" />
+    <Folder Include="Content\Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

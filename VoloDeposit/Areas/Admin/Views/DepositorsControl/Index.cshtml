@@ -5,7 +5,8 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>List of Depositors</h2>
+<br />
 
 <table class="table">
     <tr>
@@ -51,7 +52,7 @@
             @Html.DisplayFor(modelItem => item.Pasport)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PersonId }) 
+            @Html.ActionLink("Edit", "Edit", new { id=item.PersonId }, new { @class = "btn btn-warning" }) 
         </td>
     </tr>
 }

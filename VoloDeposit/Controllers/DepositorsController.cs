@@ -25,12 +25,13 @@ namespace VoloDeposit.Controllers
             this._repository = repository;
             this._pasportSelect = pasportSelect;
         }
+
        // GET: Depositors/PasportCheck
         public ActionResult PasportCheck()
-        {
-            
+        {  
             return View("PasportCheckView");
         }
+
        // POST: Depositors/PasportCheck
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -40,16 +41,12 @@ namespace VoloDeposit.Controllers
             {
                 Person TempPerson = _pasportSelect.SelectPasport(item.Pasport);
                 if (TempPerson == null)
-                {
-                    
+                {             
                     return RedirectToAction("Create",item);
-
                 }
-
-                return RedirectToAction("Index", "Home"); //depositi  create a uxarkum
+                return RedirectToAction("Create", "Deposits"); //depositi  create a uxarkum
             }
-            
-           
+
             return View("PasportCheckView",item);
         }
 
@@ -61,38 +58,20 @@ namespace VoloDeposit.Controllers
         }
 
         // POST: Depositors/Create
-       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonId,FirstName,LastName,BirthDay,Email,Phone,Pasport")] Person person)
+        public ActionResult Create([Bind(Include = "PersonId,FirstName,LastName,BirthDay,Email,Phone,Pasport")] Depositor_Create_ViewModel depositor)
         {
-            Depositor_Create_ViewModel kkk= DepositorMapper.To_Depositor_CreateEdit_ViewModel(person);
+            if (ModelState.IsValid)
+            {
+                Person _person = DepositorMapper.To_Depositor_CreateEdit_ViewModel(depositor); // Depositor_Create_ViewModel to person
+                _repository.Create(_person);
+                _repository.Save();
+                return RedirectToAction("Create", "Deposits");
+            }
 
-            //    try
-            //    {
-            //    _repository.Create();
-            //    _repository.Save();
-            //    return RedirectToAction("Index");
-            //}
-            //catch
-            //{
-            //    return View();
-            //}
-
-
-
-            //    if (ModelState.IsValid)
-            //    {
-            //        _repository.Create(person);
-            //        _repository.Save();
-            //        return RedirectToAction("Index");
-            //    }
-
-            return View(person);
+            return View("Create",depositor);
         }
-
-       
-
         protected override void Dispose(bool disposing)
         {
             if (_repository != null)

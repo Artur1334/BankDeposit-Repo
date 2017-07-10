@@ -1,0 +1,67 @@
+﻿@model EntitiesServices.Entities.Deposit
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Deposit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DepositType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepositType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepositDated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepositDated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepositYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepositYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bank.BankName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bank.BankName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Person.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DepositID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

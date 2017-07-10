@@ -2,13 +2,14 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>List of Deposits</h2>
-<br />
+<h2>Index</h2>
 
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -52,7 +53,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Person.FirstName)
         </td>
-
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DepositID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DepositID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DepositID })
+        </td>
     </tr>
 }
 

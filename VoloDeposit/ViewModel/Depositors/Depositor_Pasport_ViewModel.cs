@@ -10,8 +10,7 @@ namespace VoloDeposit.ViewModel.Depositors
     {
        
         [Required(ErrorMessage = "Bank name is REQUIRED fild"),]
-        [MinLength(9, ErrorMessage = "Минимальная длина пароля 5 символов")]
-        [MaxLength(9, ErrorMessage = "Максимальная длина пароля 20 символов")]
+        [RegularExpression(@"[a-zA-Z]{2}\d{7}", ErrorMessage = "Must be under 2 characters and 7 digits`Like(Ak1234567)")]
         public string Pasport { get; set; }
     }
 }
