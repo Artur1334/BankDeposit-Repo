@@ -19,16 +19,19 @@ namespace VoloDeposit.Controllers
         private ArmDepositEntities db = new ArmDepositEntities();
 
         protected IGenericRepository<Deposit> _repository;
-        public DepositsController(GenericRepository<Deposit> repository)
+        protected IGenericRepository<Bank> _repositorybank;
+        protected IGenericRepository<Person> _repositoryPerson; 
+        public DepositsController(GenericRepository<Deposit> repository, GenericRepository<Bank> repositorybank, GenericRepository<Person> repositoryPerson)
         {
             this._repository = repository;
+            this._repositorybank = repositorybank;
+            this._repositoryPerson = repositoryPerson;
         }
         // GET: Deposits/Create
         public ActionResult Create()
         {
-            ViewBag.BankID = new SelectList(db.Banks, "BankID", "BankName");
-            //ViewBag.BankID= new SelectList()
-            ViewBag.DepositorID = new SelectList(db.People, "PersonId", "FirstName");
+            ViewBag.BankID = new SelectList(_repositorybank.SelectAll(), "BankID", "BankName");
+            ViewBag.DepositorID = new SelectList(_repositoryPerson.SelectAll(), "PersonId", "FirstName");
             return View();
         }
 
@@ -37,7 +40,7 @@ namespace VoloDeposit.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DepositID,BankID,DepositorID,DepositType,Amount,DepositDated,DepositYear")] Deposit deposit)
+        public ActionResult Create([Bind(Include = "DepositID,BankID,DepositorID,DepositType,Amount,DepositDated,DepositYear")] DepositViewModel deposit)
         {
             if (ModelState.IsValid)
             {
@@ -52,8 +55,8 @@ namespace VoloDeposit.Controllers
 
             }
 
-            ViewBag.BankID = new SelectList(db.Banks, "BankID", "BankName", deposit.BankID);
-            ViewBag.DepositorID = new SelectList(db.People, "PersonId", "FirstName", deposit.DepositorID);
+            ViewBag.BankID = new SelectList(_repositorybank.SelectAll(), "BankID", "BankName", deposit.BankID);
+            ViewBag.DepositorID = new SelectList(_repositoryPerson.SelectAll(), "PersonId", "FirstName", deposit.DepositorID);
             return View(deposit);
         }
         protected override void Dispose(bool disposing)
@@ -66,12 +69,12 @@ namespace VoloDeposit.Controllers
             base.Dispose(disposing);
         }
 
-        // GET: Deposits
-        //public ActionResult Index()
-        //{
-        //    var deposits = db.Deposits.Include(d => d.Bank).Include(d => d.Person);
-        //    return View(deposits.ToList());
-        //}
+       // GET: Deposits
+        public ActionResult Index()
+        {
+            var deposits = db.Deposits.Include(d => d.Bank).Include(d => d.Person);
+            return View(deposits.ToList());
+        }
 
         // GET: Deposits/Details/5
         //public ActionResult Details(int? id)
@@ -151,6 +154,6 @@ namespace VoloDeposit.Controllers
         //    return RedirectToAction("Index");
         //}
 
-       
+
     }
 }

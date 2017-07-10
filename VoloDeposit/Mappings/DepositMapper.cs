@@ -26,9 +26,5 @@ namespace VoloDeposit.Mappings
             return depositVM;
         }
 
-        internal static Deposit To_Deposit_Create_ViewModel(Deposit deposit)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
