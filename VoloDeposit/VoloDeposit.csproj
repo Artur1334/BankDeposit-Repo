@@ -179,6 +179,11 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Family.jpg" />
+    <Content Include="Content\Images\Accumulative.png" />
+    <Content Include="Content\Images\logo1.png" />
+    <Content Include="Content\Images\New .jpg" />
+    <Content Include="Content\Images\Saving.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -235,7 +240,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Content\BankIcon\" />
-    <Folder Include="Content\Images\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\CustomScripts\" />
   </ItemGroup>
