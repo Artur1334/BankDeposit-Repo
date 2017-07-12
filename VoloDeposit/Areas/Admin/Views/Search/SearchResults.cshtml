@@ -1,0 +1,35 @@
+﻿@model List<VoloDeposit.Areas.Admin.ViewModel.SearchResultsViewModel>
+<table class="table">
+    <tr>
+        <th>
+            BankName
+        </th>
+        <th>
+            FirstName
+        </th>
+        <th>
+            LastName
+        </th>
+        <th>
+            DepositType
+        </th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepositType)
+            </td>
+        </tr>
+    }
+</table>

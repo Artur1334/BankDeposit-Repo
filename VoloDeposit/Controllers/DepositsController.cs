@@ -30,8 +30,10 @@ namespace VoloDeposit.Controllers
         // GET: Deposits/Create
         public ActionResult Create()
         {
-            ViewBag.BankID = new SelectList(_repositorybank.SelectAll(), "BankID", "BankName");
+         
+            ViewBag.BankID = new SelectList(_repositorybank.SelectAll().Where(d=>d.Deleted==false), "BankID", "BankName");
             ViewBag.DepositorID = new SelectList(_repositoryPerson.SelectAll(), "PersonId", "FirstName");
+           
             return View();
         }
 

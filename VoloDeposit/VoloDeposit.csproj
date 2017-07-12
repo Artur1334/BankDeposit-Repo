@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -150,6 +154,9 @@
     <Compile Include="Areas\Admin\Controllers\DepositorsControlController.cs" />
     <Compile Include="Areas\Admin\Controllers\DepositsControlController.cs" />
     <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
+    <Compile Include="Areas\Admin\SearchService\Searching.cs" />
+    <Compile Include="Areas\Admin\ViewModel\SearchResultsViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModel\SearchViewModel.cs" />
     <Compile Include="Controllers\BanksController.cs" />
     <Compile Include="Controllers\DepositorsController.cs" />
     <Compile Include="Controllers\DepositsController.cs" />
@@ -160,11 +167,13 @@
     <Compile Include="Mappings\BankMapper.cs" />
     <Compile Include="Mappings\DepositMapper.cs" />
     <Compile Include="Mappings\DepositorMapper.cs" />
+    <Compile Include="Mappings\SearchMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\DependencyResolver.cs" />
     <Compile Include="ViewModel\Banks\BankViewModel.cs" />
     <Compile Include="ViewModel\Depositors\Depositor_Create_ViewModel.cs" />
     <Compile Include="ViewModel\Depositors\Depositor_Pasport_ViewModel.cs" />
+    <Compile Include="ViewModel\Deposit\DepositIndexViewModel.cs" />
     <Compile Include="ViewModel\Deposit\DepositViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,7 +194,9 @@
     <Content Include="Areas\Admin\Views\DepositorsControl\Index.cshtml" />
     <Content Include="Areas\Admin\Views\BanksControl\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DepositsControl\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Search\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DepositsControl\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\Search\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\Search\SearchResults.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -226,6 +237,7 @@
     <Folder Include="Content\BankIcon\" />
     <Folder Include="Content\Images\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\CustomScripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

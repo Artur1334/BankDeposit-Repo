@@ -27,7 +27,8 @@ namespace VoloDeposit.Controllers
         // GET: Admin/Banks
         public ActionResult Index()
         {
-            List<BankViewModel> bankVM = _repository.SelectAll().Where(d => d.Deleted == false).To_BankViewModel().ToList<BankViewModel>();  //BankModel to BankViewModel list
+         
+            List<BankViewModel> bankVM = _repository.SelectAll().Where(d => d.Deleted ==false).To_BankViewModel().ToList<BankViewModel>();  //BankModel to BankViewModel list
             return View(bankVM);
         }
         protected override void Dispose(bool disposing)
