@@ -256,6 +256,10 @@
       <Project>{6fa25546-0e54-492f-a997-e96cf1c3cc47}</Project>
       <Name>CalculatorService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DepositTypeServices\DepositTypeServices.csproj">
+      <Project>{a6a5f202-908a-4348-892a-2efe92f752dd}</Project>
+      <Name>DepositTypeServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EntitiesServices\EntitiesServices.csproj">
       <Project>{b1bae97d-70d5-41ef-8be0-6c88bb6812c6}</Project>
       <Name>EntitiesServices</Name>

@@ -8,6 +8,7 @@ namespace VoloDeposit.ViewModel.Deposit
 {
     public class DepositViewModel
     {
+
         public int DepositID { get; set; }
         public int BankID { get; set; }
         public int DepositorID { get; set; }
