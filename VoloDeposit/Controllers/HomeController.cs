@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using VoloDeposit.ViewModel.Home;
 
 namespace VoloDeposit.Controllers
 {
@@ -47,6 +47,26 @@ namespace VoloDeposit.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        // GET
+        public ActionResult Calculator(string type)
+        {
+            //var calulator = CalculatorResolver.Get(type);
+            //return PartialView(calulator);
+            //CalculatorViewModels cc = new CalculatorViewModels();
+            return View();
+
+        }
+
+        [HttpPost]
+       
+        public ActionResult Calculator([Bind(Include = "Year,Amount")]CalculatorViewModels CalculatotVM)
+        {
+            //var calulator = CalculatorResolver.Get(type);
+            //return PartialView(calulator);
+            //CalculatorViewModels cc = new CalculatorViewModels();
+            return View();
+
         }
     }
 }
