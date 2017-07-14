@@ -36,26 +36,10 @@ namespace VoloDeposit.Areas.Admin.Controllers
         }
 
         // POST: Admin/BanksControl/Create
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BankID,BankName,Deleted")]  Bank bank)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    string fileName = "";
-            //    if (Icon != null)
-            //    {
-            //        var path = Path.Combine(Server.MapPath("~/Content/BankIcon"), Icon.FileName);
-            //        fileName = Path.GetFileNameWithoutExtension(Icon.FileName);
-            //        Icon.SaveAs(path);
-            //    }
-            //    else
-            //    {
-            //        fileName = null;
-            //    }
-            //    return RedirectToAction("Index");
-            //}
             if (ModelState.IsValid)
             {
                 _repository.Create(bank);
@@ -102,7 +86,6 @@ namespace VoloDeposit.Areas.Admin.Controllers
             return View(bank);
 
         }
-
         // GET: Admin/BanksControl/Delete/5
         public ActionResult Delete(int? id)
         {

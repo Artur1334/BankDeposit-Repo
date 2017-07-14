@@ -11,7 +11,7 @@ namespace VoloDeposit.Areas.Admin.ViewModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string BankName { get; set; }
+        public string BankID { get; set; }
         public string DepositType { get; set; }
         public decimal? MinAmount { get; set; }
         public decimal? MaxAmount { get; set; }

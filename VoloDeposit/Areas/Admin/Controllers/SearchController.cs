@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DepositTypeServices;
 using EntitiesServices.Entities;
 using EntitiesServices.Services;
 using InfrastructureData;
@@ -18,6 +19,7 @@ namespace VoloDeposit.Areas.Admin.Controllers
         protected IGenericRepository<Deposit> _repository;
         protected IGenericRepository<Bank> _repositorybank = new GenericRepository<Bank>();
         protected IGenericRepository<Person> _repositoryPerson = new GenericRepository<Person>();
+        ListDepositType _deposittype = new ListDepositType();
         public SearchController(GenericRepository<Deposit> repository)
         {
             _repository = repository;
@@ -25,18 +27,13 @@ namespace VoloDeposit.Areas.Admin.Controllers
         // GET: Admin/Search
         public ActionResult Search()
         {
-
-            SearchViewModel ss = new SearchViewModel();
-            ViewBag.Banks= new SelectList(_repositorybank.SelectAll().Where(d => d.Deleted == false), "BankID", "BankName");
-            ViewBag.DepositorFirstName = new SelectList(_repositoryPerson.SelectAll(), "PersonId", "FirstName");
-            ViewBag.LastName = new SelectList(_repositoryPerson.SelectAll(), "PersonId", "LastName");
-            ViewBag.LastName = new SelectList(_repositoryPerson.SelectAll(), "PersonId", "LastName");
-            ViewBag.Type = new SelectList(_repository.SelectAll(), "DepositId", "DepositType");
-            return View(ss);
+            //SearchViewModel ss = new SearchViewModel();
+            ViewBag.BankID = new SelectList(_repositorybank.SelectAll(), "BankName", "BankName");
+            IEnumerable<DpositType> deposittype = _deposittype.GetAllTypes();
+            ViewBag.DepositorType = new SelectList(deposittype, "TypeID", "TypeName");
+            return View();
         }
-
         // POST: Admin/BanksControl/Create
-
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult SearchResults(/*[Bind(Include = " FirstName,LastName,BankName,DepositType, MinAmount,MaxAmount, MinStartDate,MaxStartDate")]*/ SearchViewModel SearchVM)
@@ -52,26 +49,25 @@ namespace VoloDeposit.Areas.Admin.Controllers
 
         public List<SearchResultsViewModel> GetSearchResults(SearchViewModel searchVM)
         {
-            Mapper.Initialize(b => b.CreateMap<Deposit, DepositSearchIndexViewModel>()
            
+            Mapper.Initialize(b => b.CreateMap<Deposit, DepositSearchIndexViewModel>()
                 .ForMember("BankName", d => d.MapFrom(n => n.Bank.BankName))
                 .ForMember("FirstName", d => d.MapFrom(n => n.Person.FirstName))
             .ForMember("LastName", d => d.MapFrom(n => n.Person.LastName)));
 
             var deposits = Mapper.Map<IEnumerable<Deposit>, IEnumerable<DepositSearchIndexViewModel>>(_repository.SelectAll()).AsQueryable();/*<Investment>()).AsQueryable()*/;
-
             List<SearchResultsViewModel> results = new List<SearchResultsViewModel>();
             if (searchVM != null)
             {
-                if (string.IsNullOrEmpty(searchVM.BankName) && string.IsNullOrEmpty(searchVM.LastName) && string.IsNullOrEmpty(searchVM.FirstName) && string.IsNullOrEmpty(searchVM.DepositType) &&
+                if (string.IsNullOrEmpty(searchVM.BankID) && string.IsNullOrEmpty(searchVM.LastName) && string.IsNullOrEmpty(searchVM.FirstName) && string.IsNullOrEmpty(searchVM.DepositType) &&
                         !searchVM.MinAmount.HasValue && !searchVM.MaxAmount.HasValue && !searchVM.MinStartDate.HasValue && !searchVM.MaxStartDate.HasValue)
                 {
                     return results;
                 }
 
 
-                if (!string.IsNullOrEmpty(searchVM.BankName))
-                    deposits = deposits.Where(x => x.BankName.Contains(searchVM.BankName));
+                if (!string.IsNullOrEmpty(searchVM.BankID))
+                    deposits = deposits.Where(x => x.BankName.Contains(searchVM.BankID));
                 if (!string.IsNullOrEmpty(searchVM.LastName))
                     deposits = deposits.Where(x => x.LastName.Contains(searchVM.LastName));
                 if (!string.IsNullOrEmpty(searchVM.FirstName))

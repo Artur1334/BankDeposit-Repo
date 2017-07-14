@@ -16,31 +16,31 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.BankName, "Bank", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BankID, "Bank", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BankName, new { htmlAttributes = new { @class = "form-control" } })
-                @*@Html.DropDownList( "Banks" , (SelectList)ViewBag.Banks ,  htmlAttributes: new { @class = "form-control" })*@
-                @Html.ValidationMessageFor(model => model.BankName, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.BankName, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownList("BankID", (IEnumerable<SelectListItem>)ViewBag.BankID, "", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BankID, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, "FirstName", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("FirstNames", (SelectList)ViewBag.DepositorFirstName, "Please select", htmlAttributes: new { @class = "form-control" })
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.LastName, "LastName", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("LastName", (SelectList)ViewBag.LastName, "Please select", htmlAttributes: new { @class = "form-control" })
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.DepositType, "DepositType", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Type", (SelectList)ViewBag.Type, "Please select", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("DepositType", (IEnumerable<SelectListItem>)ViewBag.DepositorType,"", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.DepositType, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -86,70 +86,7 @@
     @section Scripts {
 
         @Scripts.Render("~/bundles/jqueryval")
-        <script type="text/javascript" 
-       src="@Url.Content("~/scripts/CustomScripts/date-picker.js")"></script>
+        <script type="text/javascript"
+                src="@Url.Content("~/scripts/CustomScripts/date-picker.js")"></script>
     }
-
-
-
-
-
-
-
-    @*<div class="form-horizontal">
-        <h4>Deposit</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div>
-            <div style="float:left">
-                @Html.Label("Client's First name")
-                <br />
-                @Html.TextBox("FirstName", "", new { @class = "textBox", placeholder = "First name" })
-                <br /><br />
-                @Html.Label("Bank Name")
-                <br />
-                @Html.TextBox("BankName", "", new { @class = "textBox", placeholder = "Bank" })
-                <br /><br />
-                @Html.Label("Deposit Amount from")
-                <br />
-                @Html.TextBox("MinAmount", "", new { @class = "textBox", placeholder = "Amount From" })
-                <br /><br />
-                @Html.Label("Start date from ")
-                <br />
-                @Html.TextBox("MinStartDate", "", new { @class = "textBox", placeholder = "Start date from" })
-            </div>
-            <div>
-                @Html.Label("Client's Last name")
-                <br />
-                @Html.TextBox("LastName", "", new { @class = "textBox", placeholder = "Last name" })
-                <br /><br />
-                @Html.Label("Deposit type")
-                <br />*@
-                @*@Html.TextBox("DepositType", "", new { @class = "textBox", placeholder = "First name" })*@
-                @*@Html.DropDownList("DepositType", new SelectList(AllDeposits.GetAll.Select(m => m.Name)), new { @class = "textBox" })*@
-                @*@Html.TextBox("MaxAmount", "", new { @class = "textBox", placeholder = "To" })
-                <br /><br />
-                @Html.Label("To")
-                <br />
-                @Html.TextBox("MaxAmount", "", new { @class = "textBox", placeholder = "To" })
-                <br /><br />
-                @Html.Label("To")
-                <br />
-                @Html.TextBox("MaxStartDate", "", new { @class = "textBox", placeholder = "To" })
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Index" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    </div>*@
 }
-
-@*<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@

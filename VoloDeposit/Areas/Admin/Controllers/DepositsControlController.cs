@@ -28,36 +28,8 @@ namespace VoloDeposit.Areas.Admin.Controllers
         public ActionResult Index()
         {
             List<DepositIndexViewModel> bankVM = _repository.SelectAll().To_Deposit_Index_ViewModel().ToList<DepositIndexViewModel>();
-
-
-
-
             return View(bankVM);
-
         }
-        public ActionResult Search()
-        {
-            return View();
-        }
-
-        // POST: Admin/BanksControl/Create
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Search([Bind(Include = " FirstName,LastName,BankName,DepositType, MinAmount,MaxAmount, MinStartDate,MaxStartDate")] SearchViewModel Search)
-        {
-
-            if (ModelState.IsValid)
-            {
-               
-                return View();
-            }
-
-            return View();
-        }
-
-
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -67,18 +39,5 @@ namespace VoloDeposit.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
-        //public ActionResult Seaffrch()
-        //{
-        //    //string _tempID = User.Identity.GetUserId();
-        //    var _deposits = db.Deposits.Include(d => d.Bank).Include(d => d.DepositorInfo).Where(d => d.DepositorInfo.DepositorFirstName == "Artur");
-
-        //    Mapper.CreateMap<Deposit, SearchViewModel>()
-        //        .ForMember(cv => cv.DepositType, m => m.ResolveUsing<DepositTypeResolver>().FromMember(x => x.DepositType));
-
-        //    var _depositCollection = Mapper.Map<List<Deposit>, List<DepositsListViewModel>>(_deposits.ToList());
-
-
-        //    return View();
-        //}
     }
 }

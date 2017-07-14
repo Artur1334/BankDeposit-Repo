@@ -1,4 +1,4 @@
-﻿@model List<VoloDeposit.Areas.Admin.ViewModel.SearchResultsViewModel>
+﻿@*@model List<VoloDeposit.Areas.Admin.ViewModel.SearchResultsViewModel>
 <table class="table">
     <tr>
         <th>
@@ -32,4 +32,79 @@
             </td>
         </tr>
     }
+</table>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@model IEnumerable<VoloDeposit.Areas.Admin.ViewModel.SearchResultsViewModel>
+@{
+    ViewBag.Title = "SearchResult";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>SearchResult</h2>
+
+@Html.ActionLink("Back to Search", "Search", "Search", null, new { @class = "btn btn-success" })
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BankName) 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepositType)
+        </th>      
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepositType)
+            </td>
+        </tr>
+    }
 </table>
+
+
+
+
+
+
+
+
