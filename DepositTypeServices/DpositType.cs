@@ -10,5 +10,7 @@ namespace DepositTypeServices
     {
         public int TypeID { get; set; }
         public string TypeName { get; set; }
+       
+
     }
 }

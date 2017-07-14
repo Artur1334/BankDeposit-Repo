@@ -52,13 +52,13 @@ namespace VoloDeposit.Areas.Admin.Controllers
 
         public List<SearchResultsViewModel> GetSearchResults(SearchViewModel searchVM)
         {
-            Mapper.Initialize(b => b.CreateMap<Deposit, DepositIndexViewModel>()
+            Mapper.Initialize(b => b.CreateMap<Deposit, DepositSearchIndexViewModel>()
            
                 .ForMember("BankName", d => d.MapFrom(n => n.Bank.BankName))
                 .ForMember("FirstName", d => d.MapFrom(n => n.Person.FirstName))
             .ForMember("LastName", d => d.MapFrom(n => n.Person.LastName)));
 
-            var deposits = Mapper.Map<IEnumerable<Deposit>, IEnumerable<DepositIndexViewModel>>(_repository.SelectAll()).AsQueryable();/*<Investment>()).AsQueryable()*/;
+            var deposits = Mapper.Map<IEnumerable<Deposit>, IEnumerable<DepositSearchIndexViewModel>>(_repository.SelectAll()).AsQueryable();/*<Investment>()).AsQueryable()*/;
 
             List<SearchResultsViewModel> results = new List<SearchResultsViewModel>();
             if (searchVM != null)

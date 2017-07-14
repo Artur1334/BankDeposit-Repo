@@ -12,6 +12,7 @@ using InfrastructureData;
 
 using VoloDeposit.ViewModel.Deposit;
 using VoloDeposit.Areas.Admin.ViewModel;
+using VoloDeposit.Mappings;
 
 namespace VoloDeposit.Areas.Admin.Controllers
 {
@@ -26,7 +27,12 @@ namespace VoloDeposit.Areas.Admin.Controllers
         // GET: Admin/DepositsControl
         public ActionResult Index()
         {
-            return View(_repository.SelectAll());
+            List<DepositIndexViewModel> bankVM = _repository.SelectAll().To_Deposit_Index_ViewModel().ToList<DepositIndexViewModel>();
+
+
+
+
+            return View(bankVM);
 
         }
         public ActionResult Search()

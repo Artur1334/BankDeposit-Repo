@@ -42,7 +42,7 @@ namespace VoloDeposit.Controllers
         // POST: Deposits/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DepositID,BankID,DepositorID,DepositType,Amount,DepositDated,DepositYear")] DepositViewModel deposit)
+        public ActionResult Create([Bind(Include = "DepositID,BankID,DepositorID,DepositType,Amount,DepositDated,DepositYear")] DepositCreateViewModel deposit)
         {
             if (ModelState.IsValid)
             { 

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DepositTypeServices
 {
-   public class ListDepositType
+   public  class ListDepositType
     {
-        public IEnumerable<DpositType> GetAllTypes()
+        public  IEnumerable<DpositType> GetAllTypes()
         {
             DpositType type1 = new DpositType { TypeID = 1, TypeName = "Accumulative" };
             DpositType type2 = new DpositType { TypeID = 2, TypeName = "Family"};
@@ -16,12 +16,16 @@ namespace DepositTypeServices
             IEnumerable<DpositType> deposittypes = new[] { type1, type2, type3 };
             return deposittypes;
         }
-        public string GetType(byte typeNumber)
-        {
+        public  string  GetType(byte typeNumber)
+        {    
             IEnumerable<DpositType> types = GetAllTypes();
-            DpositType ob = types.Single(a => a.TypeID == typeNumber);
-            string type = ob.TypeName;
-            return type;
+            DpositType _depositType = types.SingleOrDefault(a => a.TypeID == typeNumber);       
+            if (_depositType == null)
+            {
+                return "";
+            }
+            string t = _depositType.TypeName;
+            return t;
         }
     }
 }

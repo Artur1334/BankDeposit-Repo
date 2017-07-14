@@ -6,7 +6,7 @@ using System.Web;
 
 namespace VoloDeposit.ViewModel.Deposit
 {
-    public class DepositViewModel
+    public class DepositCreateViewModel
     {
 
         public int DepositID { get; set; }
