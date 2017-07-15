@@ -61,14 +61,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MinStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MaxStartDate, new { htmlAttributes = new { @class = "form-control", id = "MinStartDate" } })
+                @Html.EditorFor(model => model.MinStartDate, new { htmlAttributes = new { @class = "form-control", id = "MinStartDate" } })
                 @Html.ValidationMessageFor(model => model.MinStartDate)
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.MaxStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MinStartDate, new { htmlAttributes = new { @class = "form-control", id= "MaxStartDate" } })
+                @Html.EditorFor(model => model.MaxStartDate, new { htmlAttributes = new { @class = "form-control", id= "MaxStartDate" } })
                 @Html.ValidationMessageFor(model => model.MaxStartDate, "", new { @class = "text-danger" })
             </div>
         </div>

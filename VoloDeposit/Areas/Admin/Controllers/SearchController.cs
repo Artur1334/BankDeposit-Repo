@@ -33,10 +33,9 @@ namespace VoloDeposit.Areas.Admin.Controllers
             ViewBag.DepositorType = new SelectList(deposittype, "TypeID", "TypeName");
             return View();
         }
-        // POST: Admin/BanksControl/Create
+        // POST: Admin/ Search/ SearchResults
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult SearchResults(/*[Bind(Include = " FirstName,LastName,BankName,DepositType, MinAmount,MaxAmount, MinStartDate,MaxStartDate")]*/ SearchViewModel SearchVM)
+        public ActionResult SearchResults( SearchViewModel SearchVM)
         {
 
             var Results = GetSearchResults(SearchVM);
@@ -47,9 +46,11 @@ namespace VoloDeposit.Areas.Admin.Controllers
         }
 
 
+        #region GetSearch
+        [NonAction]
         public List<SearchResultsViewModel> GetSearchResults(SearchViewModel searchVM)
         {
-           
+
             Mapper.Initialize(b => b.CreateMap<Deposit, DepositSearchIndexViewModel>()
                 .ForMember("BankName", d => d.MapFrom(n => n.Bank.BankName))
                 .ForMember("FirstName", d => d.MapFrom(n => n.Person.FirstName))
@@ -79,9 +80,9 @@ namespace VoloDeposit.Areas.Admin.Controllers
                 if (searchVM.MaxAmount.HasValue)
                     deposits = deposits.Where(x => x.Amount <= searchVM.MaxAmount);
                 if (searchVM.MinStartDate.HasValue)
-                    deposits = deposits.Where(x => x.StartDate >= searchVM.MinStartDate);
+                    deposits = deposits.Where(x => (DateTime)x.StartDate > (DateTime)searchVM.MinStartDate);
                 if (searchVM.MaxStartDate.HasValue)
-                    deposits = deposits.Where(x => x.StartDate <= searchVM.MaxStartDate);
+                    deposits = deposits.Where(x => (DateTime)x.StartDate < (DateTime)searchVM.MaxStartDate);
 
                 foreach (var item in deposits)
                 {
@@ -98,9 +99,21 @@ namespace VoloDeposit.Areas.Admin.Controllers
             }
             return results;
         }
+        #endregion
 
 
-
-
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _repository.Dispose();
+                _repository = null;
+                _repositorybank.Dispose();
+                _repositorybank = null;
+                _repositoryPerson.Dispose();
+                _repositoryPerson = null;
+            }
+            base.Dispose(disposing);
+        }
     }
 }

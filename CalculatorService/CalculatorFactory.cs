@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalculatorService
 {
-    public class CalculatorResolver
+    public class CalculatorFactory
     {
         private const string suffix = "DepositeCalculator";
         public static DepositeCalculator Get(string name)

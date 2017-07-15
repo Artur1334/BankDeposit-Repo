@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="AccumulativeDepositeCalculator.cs" />
     <Compile Include="DepositeCalculator.cs" />
-    <Compile Include="CalculatorResolver.cs" />
+    <Compile Include="CalculatorFactory.cs" />
     <Compile Include="FamilyDepositeCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SavingDepositeCalculator.cs" />

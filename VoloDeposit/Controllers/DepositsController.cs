@@ -31,7 +31,6 @@ namespace VoloDeposit.Controllers
         // GET: Deposits/Create
         public ActionResult Create(string item)
         {
-            //ViewBag.Person = new SelectList(_repositoryPerson.SelectAll().Where(d => d.Pasport == item));
             ViewBag.BankID = new SelectList(_repositorybank.SelectAll().Where(d=>d.Deleted==false), "BankID", "BankName");
             ViewBag.DepositorID = new SelectList(_repositoryPerson.SelectAll(), "PersonId", "FirstName");
             ViewBag.DepositType = new  SelectList(_listdeposittype.GetAllTypes(), "TypeID", "TypeName");
@@ -44,6 +43,8 @@ namespace VoloDeposit.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "DepositID,BankID,DepositorID,DepositType,Amount,DepositDated,DepositYear")] DepositCreateViewModel deposit)
         {
+
+            deposit.DepositDated = DateTime.Now;
             if (ModelState.IsValid)
             { 
                 Deposit _deposit = DepositMapper.To_Deposit_Create_ViewModel(deposit);

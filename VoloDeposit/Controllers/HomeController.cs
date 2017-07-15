@@ -13,13 +13,10 @@ namespace VoloDeposit.Controllers
 {
  
     public class HomeController : Controller
-    {
-        private readonly IGenericRepository<Bank> _repo;
-       
+    {  
         public HomeController(IGenericRepository<Bank> repo)
         {
-            _repo = repo;
-            var calulator = CalculatorResolver.Get("Family");
+            var calulator = CalculatorFactory.Get("Family");
             var total = calulator.Calculate(75.50m, 1);
         }
         public ActionResult Index()
@@ -27,12 +24,6 @@ namespace VoloDeposit.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
         // GET
         public ActionResult Calculator(string depotype)
         {
