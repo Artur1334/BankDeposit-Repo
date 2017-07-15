@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>List of Banks</h2>
 
 
 <table class="table">
@@ -21,14 +21,11 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @*@Html.ActionLink("Select", "PasportCheck", "Depositors", new { Id=item.Id},null)*@
             <a href="@Url.Action("PasportCheck", "Depositors",new { Id=item.Id},null)" class="btn btn-warning">
                 Select
                 <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
             </a>
-        </td>
-       
-      
+        </td>  
     </tr>
 }
 

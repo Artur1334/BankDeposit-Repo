@@ -45,7 +45,7 @@ namespace VoloDeposit.Controllers
                 {             
                     return RedirectToAction("Create",item);
                 }
-                return RedirectToAction("Create", "Deposits"); //depositi  create a uxarkum
+                return RedirectToAction("Create", "Deposits",item); //depositi  create a uxarkum
             }
 
             return View("PasportCheckView",item);
@@ -68,7 +68,7 @@ namespace VoloDeposit.Controllers
                 Person _person = DepositorMapper.To_Depositor_Create_ViewModel(depositor); // Depositor_Create_ViewModel to person
                 _repository.Create(_person);
                 _repository.Save();
-                return RedirectToAction("Create", "Deposits");
+                return RedirectToAction("Create", "Deposits",_person.Pasport);
   
             }
 

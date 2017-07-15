@@ -235,11 +235,8 @@
     <Content Include="Views\Depositors\PasportCheckView.cshtml" />
     <Content Include="Views\Depositors\Create.cshtml" />
     <Content Include="Views\Deposits\Create.cshtml" />
-    <Content Include="Views\Deposits\Delete.cshtml" />
-    <Content Include="Views\Deposits\Details.cshtml" />
-    <Content Include="Views\Deposits\Edit.cshtml" />
-    <Content Include="Views\Deposits\Index.cshtml" />
     <Content Include="Views\Home\Calculator.cshtml" />
+    <Content Include="Views\Deposits\Congratulations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

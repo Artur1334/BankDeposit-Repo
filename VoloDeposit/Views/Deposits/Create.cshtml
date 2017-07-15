@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Create Your Deposit</h2>
 
 
 @using (Html.BeginForm())
@@ -13,7 +13,6 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Deposit</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -25,9 +24,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DepositorID, "DepositorID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DepositorID, "DepositorID", htmlAttributes: new { @class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.DropDownList("DepositorID", null, htmlAttributes: new { @class = "form-control" })
+                @*@Html.EditorFor(model => model.DepositorID, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownList("DepositorID", null, htmlAttributes: new { @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.DepositorID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control",id="amountid" } })
                 @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -54,14 +54,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DepositYear, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DepositYear, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DepositYear, new { htmlAttributes = new { @class = "form-control",id="deposityearid" } })
                 @Html.ValidationMessageFor(model => model.DepositYear, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Create</button>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="Calculate()" >Create</button>
             </div>
         </div>
 
@@ -73,10 +73,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
+                    <h4 class="modal-title">Information Page</h4>
                 </div>
                 <div class="modal-body">
-                    <p>This is a small modal.</p>
+                    <h4>Year</h4>
+                    <p id="year"></p>
+                    <h4>Rate`</h4>
+                    <p id="rate"></p>
+                    <h4>Final Amount`</h4>
+                    <p id="amount"></p>
                 </div>
                 <div class="modal-footer">
                     <input type="submit" value="Confirm" class="btn btn-success" />
@@ -88,9 +93,30 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Register", "Create", "Depositors")
 </div>
 
+<script>
+function Calculate() {
+   let percentage;
+   let selectedType = $("#selectedDepositType option:selected").val();
+   if (selectedType == 1) {
+       percentage = 0.12;
+   }
+   if (selectedType == 2) {
+       percentage = 0.13;
+   }
+   if (selectedType == 3) {
+       percentage = 0.09;
+   }
+   let amount = parseInt(document.getElementById('amountid').value);
+   let period = parseInt(document.getElementById('deposityearid').value);
+   let calc = amount + ((percentage * amount) * period);
+   document.getElementById('amount').innerHTML = calc;
+   document.getElementById('year').innerHTML = period;
+   document.getElementById('rate').innerHTML = percentage * 100 + "%";
+};
+</script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

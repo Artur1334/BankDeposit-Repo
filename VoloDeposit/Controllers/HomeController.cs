@@ -22,25 +22,10 @@ namespace VoloDeposit.Controllers
             var calulator = CalculatorResolver.Get("Family");
             var total = calulator.Calculate(75.50m, 1);
         }
-        public HomeController()
-        {
-            
-        }
         public ActionResult Index()
         {
             return View();
         }
-
-        //public ActionResult About(CreateBankViewModel ViewModel)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        Bank bank = new Bank { BankID = ViewModel.BankId, BankName = ViewModel.BankName };
-        //    }
-
-
-        //        return View();
-        //}
 
         public ActionResult Contact()
         {
@@ -49,8 +34,9 @@ namespace VoloDeposit.Controllers
             return View();
         }
         // GET
-        public ActionResult Calculator(string type)
+        public ActionResult Calculator(string depotype)
         {
+            ViewBag.Depotype= depotype;
             //var calulator = CalculatorResolver.Get(type);
             //return PartialView(calulator);
             //CalculatorViewModels cc = new CalculatorViewModels();
